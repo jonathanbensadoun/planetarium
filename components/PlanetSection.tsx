@@ -30,12 +30,33 @@ export default function PlanetSection({
       id={`planet-${index}`}
       className="relative flex min-w-full h-full snap-start items-center justify-center p-8 "
     >
-      <div className="flex items-center justify-between w-full max-w-7xl mx-auto ">
+      <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-7xl mx-auto ">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{
+            opacity: isActive ? 1 : 0.3,
+            scale: isHovered ? 1.1 : 1,
+          }}
+          transition={{ duration: 0.8 }}
+          onHoverStart={() => setIsHovered(true)}
+          onHoverEnd={() => setIsHovered(false)}
+          className="w-1/2 relative mt-24 md:mt-0 "
+        >
+          <div className="aspect-square relative ">
+            <Image
+              src={planet.image}
+              alt={planet.name}
+              fill
+              className="object-contain "
+              priority
+            />
+          </div>
+        </motion.div>
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: isActive ? 1 : 0.3, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="w-1/2 pr-8 "
+          className="w-full md:w-1/2 pr-8 mb-10 md:mb-0 "
         >
           <Card className="bg-black/10 backdrop-blur-md border-gray-800 rounded-lg">
             <CardHeader>
@@ -60,28 +81,6 @@ export default function PlanetSection({
               </div>
             </CardContent>
           </Card>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{
-            opacity: isActive ? 1 : 0.3,
-            scale: isHovered ? 1.1 : 1,
-          }}
-          transition={{ duration: 0.8 }}
-          onHoverStart={() => setIsHovered(true)}
-          onHoverEnd={() => setIsHovered(false)}
-          className="w-1/2 relative"
-        >
-          <div className="aspect-square relative ">
-            <Image
-              src={planet.image}
-              alt={planet.name}
-              fill
-              className="object-contain "
-              priority
-            />
-          </div>
         </motion.div>
       </div>
     </section>

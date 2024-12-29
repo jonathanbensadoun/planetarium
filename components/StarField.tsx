@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
 export default function StarField() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -9,7 +9,7 @@ export default function StarField() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     // Set canvas size to window size
@@ -18,7 +18,7 @@ export default function StarField() {
       canvas.height = window.innerHeight;
     };
     resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener("resize", resizeCanvas);
 
     // Star properties
     const stars: { x: number; y: number; size: number; speed: number }[] = [];
@@ -36,10 +36,9 @@ export default function StarField() {
 
     // Animation function
     function animate() {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      stars.forEach(star => {
+      stars.forEach((star) => {
         // Update star position
         star.x -= star.speed;
 
@@ -50,7 +49,7 @@ export default function StarField() {
         }
 
         // Draw star
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+        ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
         ctx.fill();
@@ -62,7 +61,7 @@ export default function StarField() {
     animate();
 
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener("resize", resizeCanvas);
     };
   }, []);
 
