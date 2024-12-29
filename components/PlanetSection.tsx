@@ -36,6 +36,7 @@ export default function PlanetSection({
           animate={{
             opacity: isActive ? 1 : 0.3,
             scale: isHovered ? 1.1 : 1,
+            rotate: isHovered ? 10 : 0,
           }}
           transition={{ duration: 0.8 }}
           onHoverStart={() => setIsHovered(true)}
