@@ -10,7 +10,7 @@ export default function StarField() {
     if (!canvas) return;
 
     const ctx = canvas.getContext("2d");
-    if (!ctx) return;
+    if (!ctx || !canvas) return;
 
     // Set canvas size to window size
     const resizeCanvas = () => {
@@ -36,6 +36,8 @@ export default function StarField() {
 
     // Animation function
     function animate() {
+      if (!ctx || !canvas) return;
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       stars.forEach((star) => {
