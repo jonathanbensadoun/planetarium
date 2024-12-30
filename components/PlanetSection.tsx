@@ -41,7 +41,7 @@ export default function PlanetSection({
           transition={{ duration: 0.8 }}
           onHoverStart={() => setIsHovered(true)}
           onHoverEnd={() => setIsHovered(false)}
-          className="w-1/2 relative mt-24 md:mt-0 "
+          className="w-1/2 relative mt-96 sm:mt-0 "
         >
           <div className="aspect-square relative ">
             <Image
@@ -57,7 +57,7 @@ export default function PlanetSection({
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: isActive ? 1 : 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="w-full md:w-1/2 pr-8 mb-10 md:mb-0 "
+          className="w-full md:w-1/2 pr-8   "
         >
           <Card className="bg-black/10 backdrop-blur-md border-gray-800 rounded-lg">
             <CardHeader>
