@@ -34,7 +34,7 @@ export default function PlanetSection({
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{
-            opacity: isActive ? 1 : 0.3,
+            opacity: isActive ? 1 : 1,
             scale: isHovered ? 1.1 : 1,
             rotate: isHovered ? 10 : 0,
           }}
@@ -55,7 +55,7 @@ export default function PlanetSection({
         </motion.div>
         <motion.div
           initial={{ opacity: 0, x: -100 }}
-          animate={{ opacity: isActive ? 1 : 0.3, x: 0 }}
+          animate={{ opacity: isActive ? 1 : 1, x: 0 }}
           transition={{ duration: 0.8 }}
           className="w-full md:w-1/2 pr-8 mb-10 md:mb-0 "
         >
